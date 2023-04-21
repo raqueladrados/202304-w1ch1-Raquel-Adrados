@@ -12,19 +12,19 @@ body {
   place-items: center;
 }
 
-h1 {
+header {
+  padding: 20px;
+}
+
+.firstTitle {
   text-align: center;
   padding-bottom: 10px;
   text-shadow: 3px 3px 5px grey;
 }
 
-h2 {
+.secondTitle {
   text-align: center;
   text-shadow: 5px 5px 5px grey;
-}
-
-header {
-  padding: 20px;
 }
 
 .board {
