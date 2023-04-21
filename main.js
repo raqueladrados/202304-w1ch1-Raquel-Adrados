@@ -31,6 +31,7 @@ let p1VerticalCount = [
     consecutivePieces: 0,
   },
 ];
+
 let p2VerticalCount = [
   {
     column: 1,
@@ -74,9 +75,12 @@ const setPiece = (event) => {
       currentPlayer === player1
     ) {
       currentRow.style.backgroundColor = "red";
+
       p2VerticalCount[columnSelected - 1].consecutivePieces = 0;
       p1VerticalCount[columnSelected - 1].consecutivePieces++;
+
       document.querySelector(`.currentPlayer`).style.backgroundColor = "yellow";
+
       return (currentPlayer = player2);
     }
 
@@ -85,9 +89,12 @@ const setPiece = (event) => {
       currentPlayer === player2
     ) {
       currentRow.style.backgroundColor = "yellow";
+
       p1VerticalCount[columnSelected - 1].consecutivePieces = 0;
       p2VerticalCount[columnSelected - 1].consecutivePieces++;
+
       document.querySelector(`.currentPlayer`).style.backgroundColor = "red";
+
       return (currentPlayer = player1);
     }
   }
@@ -110,17 +117,20 @@ const checkWinner = () => {
 const selectRandomStartingPlayer = () => {
   magicNumber = Math.floor(Math.random() * 10);
   console.log(`magic number is...... ${magicNumber}`);
+
   if (magicNumber < 5) {
     currentPlayer = player1;
   } else {
     currentPlayer = player2;
   }
+
   document.querySelector(`.currentPlayer`).style.backgroundColor =
     currentPlayer;
 };
 
 const startGame = () => {
   console.log("Juego iniciado");
+
   for (index = 1; index <= 7; index++) {
     let column = document.querySelector(`.c${index}`);
     column.addEventListener("click", () => {
