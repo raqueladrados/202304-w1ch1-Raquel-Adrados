@@ -67,7 +67,7 @@ const setPiece = (event) => {
   console.log(columnSelected);
 
   for (row = 1; row <= 6; row++) {
-    let currentRow = document.querySelector(`.c${columnSelected}${row}`);
+    let currentRow = document.querySelector(`.c${columnSelected}${row}`); //c3
 
     if (
       currentRow.style.backgroundColor === "white" &&
@@ -93,18 +93,6 @@ const setPiece = (event) => {
   }
 };
 
-const startGame = () => {
-  console.log("Juego iniciado");
-  for (index = 1; index <= 7; index++) {
-    let column = document.querySelector(`.c${index}`);
-    column.addEventListener("click", () => {
-      setPiece(event);
-      console.log("checking");
-      checkWinner();
-    });
-  }
-};
-
 const checkWinner = () => {
   for (index = 0; index < p1VerticalCount.length; index++) {
     if (p1VerticalCount[index].consecutivePieces === 4) {
@@ -119,12 +107,39 @@ const checkWinner = () => {
   }
 };
 
-let startButton = document.querySelector(".start");
-startButton.addEventListener("click", startGame);
+const selectRandomStartingPlayer = () => {
+  magicNumber = Math.floor(Math.random() * 10);
+  console.log(`magic number is...... ${magicNumber}`);
+  if (magicNumber < 5) {
+    currentPlayer = player1;
+  } else {
+    currentPlayer = player2;
+  }
+  document.querySelector(`.currentPlayer`).style.backgroundColor =
+    currentPlayer;
+};
+
+const startGame = () => {
+  console.log("Juego iniciado");
+  for (index = 1; index <= 7; index++) {
+    let column = document.querySelector(`.c${index}`);
+    column.addEventListener("click", () => {
+      setPiece(event);
+      console.log("checking");
+      checkWinner();
+    });
+  }
+};
 
 const restartGame = () => {
   location.reload();
 };
+
+let startButton = document.querySelector(".start");
+startButton.addEventListener("click", () => {
+  selectRandomStartingPlayer();
+  startGame();
+});
 
 let restartButton = document.querySelector(".reload");
 restartButton.addEventListener("click", restartGame);
