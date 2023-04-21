@@ -15,10 +15,12 @@ body {
 h1 {
   text-align: center;
   padding-bottom: 10px;
+  text-shadow: 3px 3px 5px grey;
 }
 
 h2 {
   text-align: center;
+  text-shadow: 5px 5px 5px grey;
 }
 
 header {
