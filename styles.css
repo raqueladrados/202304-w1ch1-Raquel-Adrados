@@ -67,13 +67,11 @@ ul li {
 .startButton {
   place-items: center;
   padding: 20px;
-  padding-bottom: 10px;
 }
 
 .restartButton {
   place-items: center;
   padding: 20px;
-  padding-top: 10px;
 }
 
 .buttonContent {
@@ -102,5 +100,5 @@ ul li {
   border: 1px solid black;
   position: relative;
   box-shadow: 5px 5px 5px grey;
-  background-color: red;
+  background-color: white;
 }
