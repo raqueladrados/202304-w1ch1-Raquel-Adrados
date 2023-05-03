@@ -31,7 +31,6 @@ let p1VerticalCount = [
     consecutivePieces: 0,
   },
 ];
-
 let p2VerticalCount = [
   {
     column: 1,
@@ -64,7 +63,8 @@ let p2VerticalCount = [
 ];
 
 const setPiece = (event) => {
-  let columnSelected = event.target.className.charAt(1); //50
+  console.log(event);
+  let columnSelected = event.target.className.charAt(1); //5
   console.log(columnSelected);
 
   for (row = 1; row <= 6; row++) {
@@ -130,7 +130,6 @@ const selectRandomStartingPlayer = () => {
 
 const startGame = () => {
   console.log("Juego iniciado");
-
   for (index = 1; index <= 7; index++) {
     let column = document.querySelector(`.c${index}`);
     column.addEventListener("click", () => {
